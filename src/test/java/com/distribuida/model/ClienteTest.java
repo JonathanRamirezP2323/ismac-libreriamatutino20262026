@@ -1,6 +1,5 @@
 package com.distribuida.model;
 
-import org.hibernate.engine.jdbc.batch.spi.BatchObserver;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +13,7 @@ public class ClienteTest {
     public void setUp(){
         cliente = new Cliente(
                 1
-                ,"170123456"
+                ,"1701234567"
                 ,"Bob"
                 ,"Esponja"
                 ,"En el mar"
@@ -27,7 +26,7 @@ public class ClienteTest {
     public void testClienteConstructorAndGetters(){
         assertAll( "Pruebas unitarias constructor Cliente",
                 () -> assertEquals(1, cliente.getIdCliente()),
-                () -> assertEquals("170123456", cliente.getCedula()),
+                () -> assertEquals("1701234567", cliente.getCedula()),
                 () -> assertEquals("Bob", cliente.getNombre()),
                 () -> assertEquals("Esponja", cliente.getApellido()),
                 () -> assertEquals("En el mar", cliente.getDireccion()),
@@ -42,7 +41,7 @@ public class ClienteTest {
     @Test
     public void testClienteSetters(){
         cliente.setIdCliente(2);
-        cliente.setCedula("170123456");
+        cliente.setCedula("1701234567");
         cliente.setNombre("Bob2");
         cliente.setApellido("Esponja2");
         cliente.setDireccion("En el mar, 2");
@@ -68,7 +67,7 @@ public class ClienteTest {
         String str = cliente.toString();
         assertAll("Validar datos de cliente con toString",
                 () -> assertTrue(str.contains("1")),
-                () -> assertTrue(str.contains("170123456")),
+                () -> assertTrue(str.contains("1701234567")),
                 () -> assertTrue(str.contains("Bob")),
                 () -> assertTrue(str.contains("Esponja")),
                 () -> assertTrue(str.contains("En el mar")),

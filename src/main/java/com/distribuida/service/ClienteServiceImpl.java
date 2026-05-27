@@ -1,15 +1,13 @@
 package com.distribuida.service;
 
-import com.distribuida.dao.ClienteDAO;
+import com.distribuida.model.ClienteDAO;
 import com.distribuida.model.Cliente;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class ClienteServiceImpl implements ClienteService{
-
+public class ClienteServiceImpl implements ClienteService {
 
     @Override
     public List<Cliente> findAll() {
