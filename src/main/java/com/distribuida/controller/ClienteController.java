@@ -2,7 +2,7 @@ package com.distribuida.controller;
 
 import com.distribuida.model.Cliente;
 import com.distribuida.service.ClienteService;
-import org.springframework.beans.factory.annotation.Autowired:
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,7 +32,7 @@ public class ClienteController {
 
     @PostMapping
     public ResponseEntity<Cliente> save(@RequestBody Cliente cliente){
-        Cliente clienteNuevo = clienteService.save(Cliente);
+        Cliente clienteNuevo = clienteService.save(cliente);
         if(clienteNuevo == null){
             return ResponseEntity.notFound().build();
         }
@@ -40,7 +40,7 @@ public class ClienteController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(PathVariable int id){
+    public ResponseEntity<Void> delete(@PathVariable int id){
         clienteService.delete(id);
         return ResponseEntity.noContent().build();
     }
