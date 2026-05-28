@@ -2,6 +2,8 @@ package com.distribuida.service;
 
 import com.distribuida.model.ClienteDAO;
 import com.distribuida.model.Cliente;
+import com.sun.media.sound.DLSSoundbank;
+import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,7 +27,7 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public Cliente update(int id, Cliente cliente) {
+    public Cliente update(int id, Cliente cliente, DLSSoundbank clienteDAO) {
 
         Cliente clienteExistente = find0ne(id);
         if(clienteExistente == null){
@@ -44,7 +46,7 @@ public class ClienteServiceImpl implements ClienteService {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(int id, SimpleJpaRepository<T, Integer> clienteDAO) {
 
         if(clienteDAO.existsById(id)){
             clienteDAO.deleteById(id);

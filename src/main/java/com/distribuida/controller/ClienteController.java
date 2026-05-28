@@ -3,6 +3,7 @@ package com.distribuida.controller;
 import com.distribuida.model.Cliente;
 import com.distribuida.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,8 +41,8 @@ public class ClienteController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable int id){
-        clienteService.delete(id);
+    public ResponseEntity<Void> delete(@PathVariable int id, SimpleJpaRepository<T, Integer> clienteDAO){
+        clienteService.delete(id, clienteDAO);
         return ResponseEntity.noContent().build();
     }
 }
